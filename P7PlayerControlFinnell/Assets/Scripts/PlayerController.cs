@@ -2,13 +2,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 20.0f;
-    private float turnSpeed = 45.0f;
+    private float speed = 25.0f;
+    private float turnSpeed = 55.0f;
     private float horizontalInput;
     private float forwardInput;
     public Camera FPCamera;
     public Camera SPCamera;
     public KeyCode switchKey;
+    public KeyCode fixKey;
+    public GameObject car;
+    private Vector2 fixedPosition = new Vector3(0, 5,0);
+    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +36,11 @@ public class PlayerController : MonoBehaviour
             FPCamera.enabled = !FPCamera.enabled;
             SPCamera.enabled = !SPCamera.enabled;
         }
-        
+        if (Input.GetKeyDown(fixKey))
+        {
+            transform.position = fixedPosition;
+            
+        }
         
     }
 }
